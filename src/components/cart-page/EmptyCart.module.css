@@ -1,0 +1,33 @@
+/* .emptyCart{
+margin: 50px;
+} */
+
+.emptyImg{
+    display: flex;
+    justify-content: center;
+}
+.text1 {
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1D7185;
+    text-align: center;
+}
+
+.text2 {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1D7185;
+    text-align: center;
+
+}
+
+.text2 span a {
+    color: #0E3A45;
+    text-decoration: none;
+}

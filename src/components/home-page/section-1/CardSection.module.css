@@ -1,0 +1,7 @@
+
+.sectionCard{
+    display: flex;
+    flex-direction: row;
+    padding-top: 170px;
+    padding-bottom: 170px;
+}

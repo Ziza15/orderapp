@@ -1,0 +1,32 @@
+.menu {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: #F7BF37;
+    box-shadow: 0px 1px 30px 1px #1D7185;
+
+}
+
+.navList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    text-transform: uppercase;
+    margin: 15px;
+
+}
+
+.navList li a {
+    text-decoration: none;
+    color: #1D7185;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    padding: 15px 30px 15px 30px;
+}
+
+.navList li a:hover {
+    color: #0E3A45;
+}

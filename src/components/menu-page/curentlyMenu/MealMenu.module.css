@@ -1,0 +1,57 @@
+.mealCard {
+    min-width: 33%;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.mealRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px 0px 10px;
+}
+
+.mealRow button {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+    color: #1D7185;
+    padding: 10px;
+    background-color: #F7BF37;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+
+}
+
+.mealRow button:hover{
+    background-color: #c49c40;
+    color: #0E3A45;
+    
+
+}
+.mealRow h2 {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+    color: #1D7185;
+    text-transform: uppercase;
+}
+.mealRow h3 {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+    color: #1D7185;
+    text-transform: uppercase;
+}
