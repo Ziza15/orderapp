@@ -7,10 +7,9 @@ import CartPage from "./pages/CartPage";
 import AddCart from "./store/add-cart";
 
 let cartItems =[];
-
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
-  
+ 
   const setPageNumber1 = () => {
     setPageNumber(1);
   };
@@ -30,7 +29,7 @@ function App() {
           setPage4: setPageNumber4,
         }}
       >
-        <AddCart.Provider value={{cartItems:cartItems}}>
+        <AddCart.Provider value={{cartItems:cartItems, inCart:true}}>
           {pageNumber === 1 && <HomePage />}
           {pageNumber === 2 && <MenuPage />}
           {pageNumber === 4 && <CartPage />}

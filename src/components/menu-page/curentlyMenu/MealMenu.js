@@ -16,7 +16,7 @@ const MealMenu = (props) => {
         amount: amount
       });
     } else {
-      ctx.cartItems.map((item) => {
+      ctx.cartItems.forEach((item) => {
         if (props.id === item.id) {
           console.log("Ovaj proizvod je vec u korpi, povecaj amount");
           const updIdArray = ctx.cartItems.findIndex((obj => obj.id ===item.id))
@@ -24,7 +24,6 @@ const MealMenu = (props) => {
           inCart=true
           
         }
-        return console.log("ss")
       });
 
       if (inCart === false) {

@@ -6,6 +6,23 @@ import { useContext, useEffect, useState } from "react";
 import PageContext from "../../../store/page-context";
 import AddCart from "../../../store/add-cart";
 const Menu = () => {
+  // const [inCart, setInCart] = useState(false);
+  // const ctx = useContext(PageContext);
+  // const ctxCart = useContext(AddCart);
+  // const [inCart, setCart] = useState(ctxCart.inCart);
+  // useEffect(() => {
+  //   if (ctxCart.inCart === true) {
+  //     setInCart(true);
+  //     console.log("promjena u korpi");
+  //   } else if (ctxCart.inCart === false) {
+  //     setInCart(false);
+  //     console.log("praznakorpi");
+  //   }
+  // }, [ctxCart.inCart]);
+
+  // useEffect(()=>{},[inCart])
+  // console.log("inCart: "+inCart)
+
   const [inCart, setInCart] = useState(false);
   const ctx = useContext(PageContext);
   const ctxCart = useContext(AddCart);
@@ -16,8 +33,7 @@ const Menu = () => {
     } else if (ctxCart.cartItems.length === 0) {
       setInCart(false);
     }
-  }, [ctxCart.cartItems]);
-
+  }, [ctxCart.cartItems, inCart]);
   return (
     <section className={classes.menu}>
       <ul className={classes.navList}>
