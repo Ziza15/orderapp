@@ -15,7 +15,7 @@ const CartItem = (props) => {
       }
     });
   };
-  const decrementAmount = () => {
+  const decrementAmountHandler = () => {
     ctx.cartItems?.forEach((item) => {
       const updIdArray = ctx.cartItems.findIndex((obj) => obj.id === item.id);
       if (props.id === item.id) {
@@ -27,43 +27,34 @@ const CartItem = (props) => {
       }
     });
   };
-  ctx.currentIdItems = props.id
-  // ctx.removeItemHandler =()=>{
-   
-  //   ctx.cartItems.forEach((item) => {
-  //     if(props.id === item.id){
-  //       const id = ctx.cartItems.filter((idItem) => idItem.id !== item.id);
-  //       ctx.cartItems =id
-  //       console.log(ctx.cartItems)
-
-  //     }
-  //   });
-  // }
-  return (
-    <div className={classes.cartItem}>
+  const removeIt =()=>{
+    ctx.removeItem(props.id)
+  }
+return (
+  <div className={classes.cartItem}>
+    <div>
+      <p>{props.name}</p>
+    </div>
+    <div>
       <div>
-        <p>{props.name}</p>
+        <button onClick={decrementAmountHandler}>
+          <span>-</span>
+        </button>
+        <p className={classes.amount}>{amount}</p>
+        <button onClick={incrementAmountHandler}>
+          <span>+</span>
+        </button>
+        <p className={classes.multiply}>x</p>
       </div>
       <div>
-        <div>
-          <button onClick={decrementAmount}>
-            <span>-</span>
-          </button>
-          <p className={classes.amount}>{amount}</p>
-          <button onClick={incrementAmountHandler}>
-            <span>+</span>
-          </button>
-          <p className={classes.multiply}>x</p>
-        </div>
-        <div>
-          <p>{props.price} RSD</p>
-        </div>
-        <div>
-          <button onClick={ctx.removeItemHandler} >X</button>
-        </div>
+        <p>{props.price} RSD</p>
+      </div>
+      <div>
+        <button onClick={removeIt}>X</button>
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default CartItem;

@@ -5,8 +5,9 @@ import MenuPage from "./pages/MenuPage";
 import PageContext from "./store/page-context";
 import CartPage from "./pages/CartPage";
 import AddCart from "./store/add-cart";
+import CartProvider from "./store/AddCartProvider";
 
-let cartItems =[];
+
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
  
@@ -29,11 +30,11 @@ function App() {
           setPage4: setPageNumber4,
         }}
       >
-        <AddCart.Provider value={{cartItems:cartItems, inCart:true}}>
+        <CartProvider>
           {pageNumber === 1 && <HomePage />}
           {pageNumber === 2 && <MenuPage />}
           {pageNumber === 4 && <CartPage />}
-        </AddCart.Provider>
+        </CartProvider>
       </PageContext.Provider >
     </React.Fragment>
   );

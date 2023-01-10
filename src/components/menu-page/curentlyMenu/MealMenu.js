@@ -9,7 +9,7 @@ const MealMenu = (props) => {
   
   const addItem = () => {
     if (ctx.cartItems.length === 0) {
-      ctx.cartItems.push({
+      ctx.addItemsToCart({
         id: props.id,
         name: props.name,
         price: props.price,
@@ -28,7 +28,7 @@ const MealMenu = (props) => {
 
       if (inCart === false) {
         console.log("Ovaj proizvod je dodat u korpu");
-        ctx.cartItems.push({
+        ctx.addItemsToCart({
           id: props.id,
           name: props.name,
           price: props.price,

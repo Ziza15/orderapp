@@ -11,10 +11,10 @@ const CartDisplay = (props) => {
     <div className={classes.cartDisplay}>
       <div>
         <p>Ukupna cijena:</p>
-        <p>{props.totalPrice} RSD</p>
+        <p>{ctx.totalPrice} RSD</p>
       </div>
       <div>
-        <button onClick={ctx.resetHandler}>Otkaži</button>
+        <button onClick={ctx.resetCart}>Otkaži</button>
         <button>Naruči</button>
       </div>
     </div>
