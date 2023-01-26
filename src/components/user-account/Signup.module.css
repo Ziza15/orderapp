@@ -1,0 +1,71 @@
+.centarDiv {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card {
+    width: 33%;
+    height: auto;
+    border: #1D7185 1px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 30px 1px #1D7185;
+    padding: 2%;
+}
+
+.card h2 {
+    text-transform: uppercase;
+    color: #1D7185;
+}
+
+.card p {
+    font-size: 16px;
+    color: #1D7185;
+}
+
+.card p span a:-webkit-any-link{
+    color: #0E3A45;
+    text-decoration: none;
+
+}
+
+form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: solid #1D7185 1px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+form input::placeholder {
+    font-size: 18px;
+    color: #0E3A45;
+    opacity: 0.6;
+}
+
+form input:focus-visible {
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #1D7185;
+    border-style: none;
+    border-radius: 10px;
+    color: #F7BF37;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+}
+
+form button:hover {
+    background-color: #0E3A45;
+
+}

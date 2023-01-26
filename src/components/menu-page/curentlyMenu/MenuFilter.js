@@ -1,26 +1,41 @@
+import { useState } from "react";
 import Modal from "../../UI/modal/Modal";
 
 const MenuFilter = (props) => {
-    const handler =(e)=>{
-        console.log(e.target.value)
-    }
+
+
   return (
-    <Modal onClose={props.onHideCart}>
+    <Modal onClose={props.onHideFilter}>
       <div>
         <label>
-          <input type="checkbox" value="pizza"/>
+          <input type="checkbox"  checked={props.isCheckedPizza}  onChange={props.handleChange} />
           Pizza
         </label>
         <label>
-          <input type="checkbox" value="sendvic"/>
-          Sendvic      
+          <input type="checkbox" checked={props.isCheckedSendwich}  onChange={props.handleChange1}/>
+          Sendvic
         </label>
         <label>
-          <input type="checkbox" value="palacinke"/>
+          <input type="checkbox" value="palacinke" />
           Palacinke
         </label>
+        <input
+          type="number"
+          value={props.underPrice}
+          onChange={props.handlerUnderPrice}
+        />
+        <input
+          type="number"
+          value={props.overPrice}
+          onChange={props.handlerOverPrice}
+        />
+        <button type="submit" onClick={props.filterMenu}>
+          Filtriraj
+        </button>
+        <button type="submit" onClick={props.resetFilter}>
+          Restartuj
+        </button>
       </div>
-      <button onClick={handler}>Filtriraj</button>
     </Modal>
   );
 };

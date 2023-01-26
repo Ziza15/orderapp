@@ -2,40 +2,33 @@ import classes from "./App.module.css";
 import React, { useContext, useEffect, useState } from "react";
 import HomePage from "./pages/HomePage";
 import MenuPage from "./pages/MenuPage";
-import PageContext from "./store/page-context";
 import CartPage from "./pages/CartPage";
-import AddCart from "./store/add-cart";
 import CartProvider from "./store/AddCartProvider";
-
-
+import { Route, Router, Routes } from "react-router-dom";
+import NotFound from "./components/UI/notFound/NotFound";
+import Signup from "./components/user-account/Signup";
+import { AuthProvider } from "./store/AuthContext";
+import Signin from "./components/user-account/Signin";
+import PrivateRoutes from "./components/user-account/PrivateRoutes";
 function App() {
-  const [pageNumber, setPageNumber] = useState(1);
- 
-  const setPageNumber1 = () => {
-    setPageNumber(1);
-  };
-  const setPageNumber2 = () => {
-    setPageNumber(2);
-  };
-  const setPageNumber4 = () => {
-    setPageNumber(4);
-  };
   return (
     <React.Fragment>
-      <PageContext.Provider
-        value={{
-          page: pageNumber,
-          setPage1: setPageNumber1,
-          setPage2: setPageNumber2,
-          setPage4: setPageNumber4,
-        }}
-      >
+      <AuthProvider>
         <CartProvider>
-          {pageNumber === 1 && <HomePage />}
-          {pageNumber === 2 && <MenuPage />}
-          {pageNumber === 4 && <CartPage />}
+         
+            <Routes>
+              <Route element={<PrivateRoutes />}>
+                <Route exact path="/" element={<HomePage />} />
+                <Route path="/meni" element={<MenuPage />} />
+                <Route path="/cart" element={<CartPage />} />
+              </Route>
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/signin" element={<Signin />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          
         </CartProvider>
-      </PageContext.Provider >
+      </AuthProvider>
     </React.Fragment>
   );
 }

@@ -30,3 +30,8 @@
 .navList li a:hover {
     color: #0E3A45;
 }
+
+.navList li a img {
+    cursor: pointer;
+    
+}
