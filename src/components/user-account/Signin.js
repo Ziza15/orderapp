@@ -29,17 +29,19 @@ const Signin = () => {
         <div className={classes.card}>
           <h2>Prijavite se</h2>
           {error && <p>{error}</p>}
-          <form onSubmit={submitHandle}>
+          <form className={classes.form} onSubmit={submitHandle}>
             <input
               type="email"
               ref={emailRef}
               placeholder="Unesite Vašu email adresu"
+              required
             />
             <input
               type="password"
               ref={passwordRef}
               placeholder="Unesite Vašu šifru"
-            />
+              required
+           />
             <button disabled={loading} type="submit">
               Prijavite se
             </button>

@@ -1,0 +1,39 @@
+.modal{
+    display: flex;
+    flex-direction: column;
+}
+
+.headingModal{
+    text-align: center;
+    text-transform: uppercase;
+    color: #1D7185;
+}
+
+.buttonModal{
+    display: flex;
+   flex-direction: row;
+   justify-content: center;
+   
+}
+
+
+.buttonModal  button {
+    cursor: pointer;
+    background-color: #1D7185;
+    border-style: none;
+    border-radius: 10px;
+    color: #F7BF37;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.05em;
+    padding: 15px 25px 15px 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.buttonModal button:hover {
+    background-color:#0E3A45 ;
+    color: #c49c40;
+}

@@ -1,6 +1,6 @@
 import classes from "./MealMenu.module.css";
 import img from "../../../assets/btnImg.svg";
-import { useContext, useState} from "react";
+import { useContext} from "react";
 import AddCart from "../../../store/add-cart";
 const MealMenu = (props) => {
   const ctx = useContext(AddCart);
@@ -36,6 +36,7 @@ const MealMenu = (props) => {
         });
       }
     }
+    ctx.updateTotalPrice()
     console.log(ctx.cartItems);
 
   };

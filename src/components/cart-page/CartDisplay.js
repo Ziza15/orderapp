@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import AddCart from "../../store/add-cart";
 import classes from "./CartDisplay.module.css";
 
@@ -14,8 +14,8 @@ const CartDisplay = (props) => {
         <p>{ctx.totalPrice} RSD</p>
       </div>
       <div>
-        <button onClick={ctx.resetCart}>Otkaži</button>
-        <button>Naruči</button>
+        <button onClick={props.back}>{props.titleBack}</button>
+        <button onClick={props.ordering} type="submit">{props.titleOrder}</button>
       </div>
     </div>
   );

@@ -2,11 +2,15 @@ import CartItem from "./CartItem";
 import classes from "./Cart.module.css";
 import CartDisplay from "./CartDisplay";
 import EmptyCart from "./EmptyCart";
-import { useCallback, useContext, useEffect, useState } from "react";
+import {  useContext, useState } from "react";
 import AddCart from "../../store/add-cart";
+import Checkout from "./Checkout";
+import CompleteOrdering from "./CompleteOrdering";
 
 const Cart = (props) => {
-   const ctx = useContext(AddCart);
+  const [isOrdering, setIsOrdering]= useState(false)
+  const [completeOrdering, setCompleteOrdering] = useState(false)
+  const ctx = useContext(AddCart);
   let cartItem = ctx.cartItems.map((item) => {
     return (
       <CartItem
@@ -18,12 +22,24 @@ const Cart = (props) => {
       />
     );
   });
-  
+  const orderingHandler =()=>{
+    setIsOrdering(true)
+  }
+  const backToCartHandler=()=>{
+    setIsOrdering(false)
+  }
+
+  const completeOrderingHandler =()=>{
+    setCompleteOrdering(true)
+    ctx.resetCart()
+  }
   return (
     <div className={`${classes.cart} ${props.className}`}>
-       {cartItem.length > 0 && cartItem}
-       {cartItem.length > 0 && <CartDisplay />}
-       {cartItem.length === 0 && <EmptyCart />}  
+       {(cartItem.length > 0 && !isOrdering && !completeOrdering) && cartItem}
+       {(cartItem.length > 0 && !isOrdering && !completeOrdering) && <CartDisplay back={ctx.resetCart} ordering={orderingHandler} titleBack="Otkaži" titleOrder="naruči"/>}
+       {(cartItem.length === 0 && !isOrdering && !completeOrdering)&& <EmptyCart />}  
+       {(isOrdering&& !completeOrdering) && <Checkout backToCart={backToCartHandler} completeOrdering={completeOrderingHandler}/>}
+       {completeOrdering && <CompleteOrdering/>}
     </div>
   );
 };

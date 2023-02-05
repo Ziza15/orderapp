@@ -1,0 +1,29 @@
+.mainDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.centerPosition {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.centerPosition div p {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 10px;
+    letter-spacing: 0.05em;
+    text-transform:uppercase;
+    color: #1D7185;
+}
+
+.completeOrdering{
+    display: flex;
+    justify-content: center;
+}

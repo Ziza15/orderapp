@@ -1,5 +1,5 @@
 import classes from "./Section3.module.css";
-import logo from "../../../assets/Logo.png";
+import logo from "../../../assets/LogoBig.svg";
 
 const Section3 = (props) => {
   return (

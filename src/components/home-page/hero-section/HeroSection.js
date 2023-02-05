@@ -4,13 +4,14 @@ import classes from "./HeroSection.module.css";
 
 const HeroSection = (props) => {
   const { currentUser } = useAuth()
+  const name = currentUser.email.split("@")[0];
   return (
     <section>
       <div className={classes.overlay}></div>
       <div className={classes.background}></div>
       <div className={classes.centerDiv}>
         <div className={`${classes.heading}`}>
-          <h1>{currentUser.email}, dobrodošao</h1>
+          <h1>{name}, dobrodošao</h1>
           <h3>Pogledajte meni i izaberite jelo po vašem ukusu</h3>
           <button type="button">
             <Link to="/meni">

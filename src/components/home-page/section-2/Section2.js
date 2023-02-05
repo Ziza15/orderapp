@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "./Section2.module.css";
 
 const Section2 = () => {
@@ -14,7 +15,9 @@ const Section2 = () => {
         </div>
         <div className={classes.buttonPosition}>
           <button type="button">
-            <span>Narucite odmah</span>
+            <Link to="/meni">
+              <span>Narucite odmah</span>
+            </Link>
           </button>
         </div>
       </div>

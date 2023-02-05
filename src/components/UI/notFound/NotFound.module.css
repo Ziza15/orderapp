@@ -1,0 +1,23 @@
+.notFoundDiv{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.notFoundDiv h1{
+    color: #1D7185;
+    text-transform: uppercase;
+    font-size: 60px;
+    margin-bottom: 0px;
+}
+.notFoundDiv h2{
+    color: #1D7185;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+.notFoundDiv h2 a{
+    color: #0E3A45;
+    text-decoration: none;
+}

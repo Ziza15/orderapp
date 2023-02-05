@@ -1,0 +1,112 @@
+.formOrder {
+    width: 80%;
+}
+
+.row {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: auto auto;
+}
+
+/* .row input{
+    width: 100%;
+    padding: 15px 10px;
+    border-radius: 10px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 22px;
+    background-color:#F5F5F5 ;
+} */
+.form-control {
+    width: 100%;
+    padding: 15px 10px;
+    border-radius: 10px;
+    border: 0px solid #1D7185;
+    box-sizing: border-box;
+    font-size: 22px;
+    background-color: #F5F5F5;
+}
+.form-control:focus-visible{
+    outline-offset: 0px;
+    outline-color: #1D7185;
+
+}
+.form-control:focus{
+    border: none;
+    border-color: #b40e0e;
+
+}
+.invalid {
+    background-color: #fddddd;
+    width: 100%;
+    padding: 15px 10px;
+    border-radius: 10px;
+    border: 1px solid #b40e0e;
+    box-sizing: border-box;
+    font-size: 22px;
+}
+
+.invalid:active {
+    border: 1px solid #ff8800;
+    background-color: #fbe8d2;
+}
+.invalid:focus-visible{
+    outline-offset: 0px;
+    outline-color: #ff8800;
+
+}
+
+.row input::placeholder {
+    font-size: 20px;
+    color: #0E3A45;
+    opacity: 0.6;
+}
+
+.headingOrder {
+    color: #1D7185;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.cartDisplay {
+    width: 100%;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+.cartDisplay div {
+    display: flex;
+    align-items: center;
+}
+
+.cartDisplay div p {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1D7185;
+}
+
+.cartDisplay div button {
+    cursor: pointer;
+    background-color: #F7BF37;
+    border: none;
+    padding: 15px 30px;
+    color: #1D7185;
+    border-radius: 10px;
+    margin-left: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.cartDisplay div button:hover {
+    background-color: #c49c40;
+    color: #0E3A45;
+}

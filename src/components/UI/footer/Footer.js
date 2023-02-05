@@ -1,6 +1,6 @@
 import classes from "./Footer.module.css";
-import LogoV2 from "../../../assets/LogoV2.png";
-import phone from "../../../assets/phone.svg";
+import logo from "../../../assets/LogoFooter.svg";
+import { Link } from "react-router-dom";
 
 const Footer = (props) => {
   return (
@@ -9,22 +9,22 @@ const Footer = (props) => {
         <div className={classes.row}>
           <div className={classes.col}>
             <div>
-              <img src={LogoV2} alt={"logo"} />
+              <img src={logo} alt={"logo"} />
             </div>
           </div>
           <div className={classes.col}>
             <ul>
               <li>
-                <a href={"#s"}>Početna</a>
+                <Link to="/">Početna</Link>
               </li>
               <li>
-                <a href={"#s"}>Meni</a>
+               <Link to="/meni">Meni</Link>
               </li>
               <li>
-                <a href={"#s"}>Narudžbe</a>
+               <Link to="/narudzbe">Narudžbe</Link>
               </li>
               <li>
-                <a href={"#s"}>Korpa</a>
+               <Link to="/cart">Korpa</Link>
               </li>
             </ul>
           </div>
@@ -32,7 +32,6 @@ const Footer = (props) => {
             <ul>
               <li>
                 <p>
-                  {/* <img src={phone} alt={"phone"} /> */}
                    066-473/319
                 </p>
               </li>

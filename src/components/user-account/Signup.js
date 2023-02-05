@@ -10,7 +10,7 @@ const Signup = () => {
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function submitHandle(e) {
     e.preventDefault();
@@ -22,10 +22,14 @@ const Signup = () => {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      navigate("/")
 
-    } catch {
-      setError("Doslo je do greske, nalog nije kreiran!");
+      navigate("/");
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        setError("Ova email adresa se već koristi, izaberite drugu!");
+      } else {
+        setError("Imate problema sa prijavljivanje, pokusajte ponovo!");
+      }
     }
     setLoading(false);
   }
@@ -36,21 +40,24 @@ const Signup = () => {
         <div className={classes.card}>
           <h2>Napravi nalog</h2>
           {error && <p>{error}</p>}
-          <form onSubmit={submitHandle}>
+          <form className={classes.form} onSubmit={submitHandle}>
             <input
               type="email"
               ref={emailRef}
               placeholder="Unesite Vašu email adresu"
+              required
             />
             <input
               type="password"
               ref={passwordRef}
               placeholder="Unesite Vašu šifru"
+              required
             />
             <input
               type="password"
               ref={passwordConfirmeRef}
               placeholder="Potvrdite Vašu unesenu šifru"
+              required
             />
             <button disabled={loading} type="submit">
               {" "}
@@ -59,7 +66,10 @@ const Signup = () => {
           </form>
           <div>
             <p>
-              Već imate nalog? <span><Link to="/signin">Prijavite se!</Link></span>
+              Već imate nalog?{" "}
+              <span>
+                <Link to="/signin">Prijavite se!</Link>
+              </span>
             </p>
           </div>
         </div>

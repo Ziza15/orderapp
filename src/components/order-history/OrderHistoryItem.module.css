@@ -1,0 +1,42 @@
+.historyItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 4px 10px;
+}
+
+
+.historyItems div button {
+    cursor: pointer;
+    background-color: #F7BF37;
+    border: none;
+    padding: 15px 30px;
+    color: #1D7185;
+    border-radius: 10px;
+    margin-left: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.historyItems div button:hover {
+    background-color: #c49c40;
+    color: #0E3A45;
+}
+
+.historyItems div h2 {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1D7185;
+}
+
+.historyItems div h2 span {
+    text-transform: lowercase;
+}

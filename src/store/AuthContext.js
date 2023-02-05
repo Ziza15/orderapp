@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLogading] = useState(false);
 
   const signup = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password)
   };
 
   const login=(email,password)=>{

@@ -14,8 +14,8 @@ const LoadedMenu = (props) => {
   const [overPrice, setOverPrice] = useState(0);
   const [isFiltered, setFiltered] = useState(false);
   const [filteredMenu, setFilteredMenu] = useState([]);
-  const [isCheckedPizza, setIsCheckedPizza] = useState(false);
-  const [isCheckedSendwich, setIsCheckedSendwich] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [inRange, setInRange] = useState(false);
 
   useEffect(() => {
     const fetchData = () => {
@@ -72,37 +72,30 @@ const LoadedMenu = (props) => {
   });
 
   const filterMenuHandler = () => {
-    setFilteredMenu(
-      menu.filter((item) => item.price < overPrice && item.price > underPrice)
-    );
-    // if (isCheckedPizza) {
-    //   setFilteredMenu(
-    //     menu.filter(
-    //       (item) =>
-    //         item.price < overPrice &&
-    //         item.price > underPrice &&
-    //         item.category === "pizza"
-    //     )
-    //   );
-    // }
-    if (isCheckedSendwich || isCheckedPizza) {
+    if (inRange) {
       setFilteredMenu(
         menu.filter(
           (item) =>
+            (!selectedCategories.length ||
+              selectedCategories.includes(item.category)) &&
             item.price < overPrice &&
-            item.price > underPrice &&
-            ((isCheckedSendwich && isCheckedPizza) ?   item.category === "sendwich" || item.category === "pizza":console.log("d") ||
-            isCheckedPizza ? item.category === "pizza" :console.log("d") 
-            || isCheckedSendwich ? item.category === "sendwich" :console.log("d"))
-          
+            item.price > underPrice
+        )
+      );
+    } else {
+      setFilteredMenu(
+        menu.filter(
+          (item) =>
+            !selectedCategories.length ||
+            selectedCategories.includes(item.category)
         )
       );
     }
+    // setFilteredMenu(
+    //   menu.filter((item) => item.price < overPrice && item.price > underPrice)
+    // );
     setFiltered(true);
     setFilterIsShown(false);
-
-    console.log(filteredMenu);
-    console.log(menu);
   };
   let arr = filteredMenu.map((m) => {
     return <MealMenu key={m.id} id={m.id} name={m.name} price={m.price} />;
@@ -135,7 +128,10 @@ const LoadedMenu = (props) => {
   };
   const resetFilterHandler = () => {
     setFiltered(false);
-    setIsCheckedPizza(false);
+    setSelectedCategories([]);
+    setUnderPrice(0);
+    setOverPrice(0);
+    setInRange(false)
   };
   const handlerUnderPrice = (e) => {
     setUnderPrice(e.target.value);
@@ -143,11 +139,16 @@ const LoadedMenu = (props) => {
   const handlerOverPrice = (e) => {
     setOverPrice(e.target.value);
   };
-  const chPizzaHandler = (event) => {
-    setIsCheckedPizza(event.target.checked);
+
+  const handleCategoryChange = (category) => {
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(selectedCategories.filter((c) => c !== category));
+    } else {
+      setSelectedCategories([...selectedCategories, category]);
+    }
   };
-  const chSendwichHandler = (event) => {
-    setIsCheckedSendwich(event.target.checked);
+  const inRangeHandler = () => {
+    setInRange(!inRange);
   };
   return (
     <React.Fragment>
@@ -160,10 +161,11 @@ const LoadedMenu = (props) => {
           filterMenu={filterMenuHandler}
           onHideFilter={hideFilterHandler}
           resetFilter={resetFilterHandler}
-          handleChange={chPizzaHandler}
-          handleChange1={chSendwichHandler}
-          isCheckedPizza={isCheckedPizza}
-          isCheckedSendwich={isCheckedSendwich}
+          arrayMenu={menu}
+          selectedCategories={selectedCategories}
+          handleCategoryChange={handleCategoryChange}
+          inRangeHandler={inRangeHandler}
+          checked={inRange}
         />
       )}
       <div className={`${props.className} ${classes.position}`}>
