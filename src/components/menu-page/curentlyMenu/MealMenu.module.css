@@ -4,7 +4,7 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    
+    justify-content: space-between;
 }
 
 .mealRow {
@@ -32,7 +32,9 @@
 
 
 }
-
+.headingWrapper{
+    max-width: 300px;
+}
 .mealRow button:hover{
     background-color: #c49c40;
     color: #0E3A45;
