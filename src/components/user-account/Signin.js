@@ -9,13 +9,17 @@ const Signin = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate()
+
+
+
   async function submitHandle(e) {
     e.preventDefault();
-
+    
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+      const user = await login(emailRef.current.value, passwordRef.current.value);
+      localStorage.setItem("idToken", user.idToken);
       navigate("/")
     } catch {
       setError("Greska pri prijavljivanju");

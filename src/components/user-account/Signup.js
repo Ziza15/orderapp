@@ -21,7 +21,8 @@ const Signup = () => {
     try {
       setError("");
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      const user= await signup(emailRef.current.value, passwordRef.current.value);
+      localStorage.setItem("idToken", user.idToken);
 
       navigate("/");
     } catch (error) {

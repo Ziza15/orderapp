@@ -13,33 +13,37 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState();
-  const [loading, setLogading] = useState(false);
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem("authUser"))
+  );
+  const [loading, setLoading] = useState(false);
 
-  const signup = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password)
-  };
-
-  const login=(email,password)=>{
-    return signInWithEmailAndPassword(auth,email, password)
-  }
-  const logout=()=>{
-    return signOut(auth)
-  }
   useEffect(() => {
-    const unsubscriber = onAuthStateChanged(auth, (user) => {
+    const unsubscriber = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      setLogading(false);
+      setLoading(false);
+
+      localStorage.setItem("authUser", JSON.stringify(user));
     });
 
     return unsubscriber;
   }, []);
+  const signup = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const login = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+  const logout = () => {
+    return signOut(auth);
+  };
 
   const value = {
     currentUser,
     signup,
     login,
-    logout
+    logout,
   };
   return (
     <AuthContext.Provider value={value}>
