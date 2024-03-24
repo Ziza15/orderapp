@@ -1,13 +1,13 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword  } from 'firebase/auth';
+import { getAuth  } from 'firebase/auth';
 
 const firebaseConfig = ({
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  apiKey: "AIzaSyCBFZKeBadXoNOhx3oJySZqjCjY6ECVbio",
+  authDomain: "auth-development-2a178.firebaseapp.com",
+  projectId: "auth-development-2a178",
+  storageBucket: "auth-development-2a178.appspot.com",
+  messagingSenderId: 124205236267,
+  appId: "124205236267:web:1a598c5cc279858457ea6e",
 });
 
 const app = initializeApp(firebaseConfig);

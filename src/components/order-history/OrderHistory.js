@@ -92,7 +92,6 @@ const OrederHistory = (props) => {
       />
     );
   });
-
   return (
     <>
       <div className={props.className}>
@@ -101,5 +100,4 @@ const OrederHistory = (props) => {
     </>
   );
 };
-
 export default OrederHistory;

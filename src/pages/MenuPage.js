@@ -13,7 +13,6 @@ const MenuPage = () => {
       <PageHeroSection title={"Meni"} img={img}/>
       <LoadedMenu className={classes.container}/>
       <Footer className={classes.container}/>
-      
     </React.Fragment>
   );
 };

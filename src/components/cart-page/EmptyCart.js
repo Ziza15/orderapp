@@ -6,15 +6,15 @@ const EmptyCart = () => {
   return (
     <div className={classes.emptyCart}>
       <div className={classes.emptyImg}>
-        <img src={img} alt="Przna korpa"/>
+        <img src={img} alt="Przna korpa" />
       </div>
       <div>
         <p className={classes.text1}>Trenutno nemate nista u korpi!</p>
         <p className={classes.text2}>
           <span>
-            <Link to="/meni" >Vratite se nazad</Link>
+            <Link to="/meni">Vratite se nazad</Link>
           </span>{" "}
-           na meni i izaberite hranu po izboru
+          na meni i izaberite hranu po izboru
         </p>
       </div>
     </div>

@@ -56,5 +56,4 @@ return (
   </div>
 );
 };
-
 export default CartItem;
